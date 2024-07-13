@@ -23,7 +23,7 @@ Route::get('/error-page', [dashboardController::class,'error'])->name('error');
 Route::group(['middleware' => 'auth', 'PreventBackHistory'], function () {
 
 // dashboard
-Route::get('/dashboard', [dashboardController::class, 'index'])->name('dashboard');
+Route::get('/', [dashboardController::class, 'index'])->name('dashboard');
 
 // profile
 Route::get('/profile/{encryptedId}/edit' ,[profileController::class, 'index'])->name('profile.index');

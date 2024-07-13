@@ -38,21 +38,17 @@
                                 </div>
                                 <h3 class="profile-username text-center uppercase">{{ auth()->user()->name }}</h3>
 
+                                <p class="text-muted text-center">{{ auth()->user()->nim }}</p>
+
                                 <ul class="list-group list-group-unbordered mb-3">
-                                    <li class="list-group-item">
-                                        <b>Type Mobil :</b> <a class="float-right">{{ auth()->user()->tipe_mobil }}</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>Nopol :</b> <a class="float-right">{{ auth()->user()->nopol }}</a>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <b>No Rangka :</b> <a class="float-right">{{ auth()->user()->no_rangka }}</a>
-                                    </li>
                                     <li class="list-group-item">
                                         <b>Email :</b> <a class="float-right">{{ auth()->user()->email }}</a>
                                     </li>
                                     <li class="list-group-item">
                                         <b>Nomor Hp :</b> <a class="float-right">{{ auth()->user()->no_hp }}</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <b>Gender :</b> <a class="float-right">{{ auth()->user()->gender }}</a>
                                     </li>
                                     <li class="list-group-item">
                                         <b>Date Account :</b> <a class="float-right">{{ auth()->user()->created_at->isoformat('DD MMMM Y') }}</a>
@@ -69,7 +65,7 @@
                     </div>
        <!-- /.col -->
        <div class="col-md-8">
-        <div class="card">
+        <div class="card card-primary card-outline">
           <div class="card-header p-2">
             <ul class="nav nav-pills">
               <li class="nav-item"><a class="nav-link active" href="#updatePassword" data-toggle="tab">Update Password</a></li>
@@ -142,104 +138,97 @@
                     <div class="form-group row">
                         <label for="name" class="col-sm-4 col-form-label">Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') ?? $profile->name }}">
-                            @error('name')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                          <input type="text" class="form-control @error('name') is invalid
+
+                          @enderror" id="name" name="name" value="{{old('name') ?? $profile->name}}" >
                         </div>
-                    </div>
+                        @error('name')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
+                      </div>
                     <div class="form-group row">
-                        <label for="nopol" class="col-sm-4 col-form-label">Nopol</label>
-                        <div class="col-sm-8">
-                            @if (auth()->user()->level_id == 2 || auth()->user()->level_id == 1)
-                                <input type="text" class="form-control @error('nopol') is-invalid @enderror" id="nopol" name="nopol" value="{{ old('nopol') ?? $profile->nopol }}">
+                        @if (auth()->user()->level_id == 5)
+                        <label for="nim" class="col-sm-4 col-form-label">Nim</label>
                             @else
-                                <input type="text" class="form-control @error('nopol') is-invalid @enderror" id="nopol" name="nopol" value="{{ old('nopol') ?? $profile->nopol }}" readonly>
-                            @endif
-                            @error('nopol')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="no_rangka" class="col-sm-4 col-form-label">Nomor Rangka</label>
+                            <label for="nim" class="col-sm-4 col-form-label">Nidn</label>
+                        @endif
                         <div class="col-sm-8">
-                            @if (auth()->user()->level_id == 2 || auth()->user()->level_id == 1)
-                                <input type="text" class="form-control @error('no_rangka') is-invalid @enderror" id="no_rangka" name="no_rangka" value="{{ old('no_rangka') ?? $profile->no_rangka }}">
-                            @else
-                                <input type="text" class="form-control @error('no_rangka') is-invalid @enderror" id="no_rangka" name="no_rangka" value="{{ old('no_rangka') ?? $profile->no_rangka }}" readonly>
-                            @endif
-                            @error('no_rangka')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                            <input type="number" class="form-control @error('nim') is invalid
+                            @enderror" id="nim" name="nim" value="{{old('nim') ?? $profile->nim}}">
                         </div>
-                    </div>
+                        @error('nim')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
+                      </div>
+
                     <div class="form-group row">
                         <label for="no_hp" class="col-sm-4 col-form-label">No Handphone</label>
                         <div class="col-sm-8">
-                            <input type="number" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp" name="no_hp" value="{{ old('no_hp') ?? $profile->no_hp }}">
-                            @error('no_hp')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
+                          <input type="number" class="form-control @error('no_hp') is invalid
+
+                          @enderror" id="no_hp" name="no_hp" value="{{old('no_hp') ?? $profile->no_hp}}" >
                         </div>
-                    </div>
+                        @error('no_hp')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
+                      </div>
                     <div class="form-group row">
                         <label for="email" class="col-sm-4 col-form-label">Email</label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{ old('email') ?? $profile->email }}" readonly>
-                            @error('email')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="tipe_mobil" class="col-sm-4 col-form-label">Type Mobil</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control @error('tipe_mobil') is-invalid @enderror" id="tipe_mobil" name="tipe_mobil" value="{{ old('tipe_mobil') ?? $profile->tipe_mobil }}">
-                            @error('tipe_mobil')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="alamat" class="col-sm-4 col-form-label">Alamat</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control @error('alamat') is-invalid @enderror" id="alamat" name="alamat" value="{{ old('alamat') ?? $profile->alamat }}">
-                            @error('alamat')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="image" class="col-sm-4 col-form-label">Image</label>
-                        <div class="col-sm-8">
-                            @if ($profile->image)
-                                <img src="{{ Storage::url($profile->image) }}" alt="gambar" width="120px" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;" class="img-fluid">
-                            @else
-                                <img alt="image" class="img-fluid tumbnail" src="{{ asset('assets/img/user_default.png') }}" width="100px" class="tumbnail img-fluid">
-                            @endif
-                            <input type="file" name="image" id="image" class="form-control @error('image') is-invalid @enderror">
-                            @error('image')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="offset-sm-4 col-sm-8">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" required> I agree to the terms and conditions
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="offset-sm-4 col-sm-8">
-                            <button type="submit" class="btn btn-danger">Submit</button>
-                        </div>
-                    </div>
-                </form>
+                          <input type="email" class="form-control @error('email') is invalid
 
+                          @enderror" id="email" name="email" value="{{old('email') ?? $profile->email}}" readonly >
+                        </div>
+                        @error('email')
+                            <span class="text-danger">{{$message}}</span>
+                        @enderror
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-4 col-form-label" for="gender">Gender</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" id="gender" name="gender">
+                                <option value="Pria" {{ $profile->gender == 'Pria' ? 'selected' : '' }}>Pria</option>
+                                <option value="Wanita" {{ $profile->gender == 'Wanita' ? 'selected' : '' }}>Wanita</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="email" class="col-sm-4 col-form-label">Image</label>
+                        <div class="col-sm-8">
+                        @if ($profile->image)
+
+                            <img src="{{ Storage::url($profile->image) }}" alt="gambar"
+                                                            width="120px" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;" class="img-fluid">
+                    @else
+                        <img alt="image" class="img-fluid tumbnail"
+                            src="{{ asset('assets/img/user_default.png') }}" width="100px"
+                            class="tumbnail img-fluid">
+                    @endif
+
+                    <input type="file" name="image" id="image" class="form-control @error('image') is invalid
+
+                    @enderror">
+                      </div>
+                      @error('image')
+    <span class="text-danger">{{$message}}</span>
+@enderror
+                      </div>
+
+                    <div class="form-group row">
+                      <div class="offset-sm-4 col-sm-8">
+                        <div class="checkbox">
+                          <label>
+                            <input type="checkbox" required> I agree to the terms and conditions
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <div class="offset-sm-4 col-sm-8">
+                        <button type="submit" class="btn btn-danger">Submit</button>
+                      </div>
+                    </div>
+                  </form>
               </div>
               <!-- /.tab-pane -->
 

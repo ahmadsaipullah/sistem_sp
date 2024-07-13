@@ -14,9 +14,9 @@
     <div class="wrapper">
 
         <!-- Preloader -->
-        <div class="preloader flex-column justify-content-center align-items-center">
+        {{-- <div class="preloader flex-column justify-content-center align-items-center">
             <img class="animation__shake" src="{{ asset('assets/img/logoft.png') }}" alt="logo" width="150">
-        </div>
+        </div> --}}
 
         <div class="mb-4 pb-4">
             @include('includes.navbar')

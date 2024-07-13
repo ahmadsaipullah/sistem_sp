@@ -33,18 +33,16 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="Table" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
                                             <th>No</th>
+                                            <th>Nim</th>
                                             <th>Nama</th>
-                                            <th>Nopol</th>
-                                            <th>No Rangka</th>
                                             <th>Email</th>
                                             <th>No Hp</th>
                                             <th>Role</th>
-                                            <th>Type Mobil</th>
-                                            <th>Alamat</th>
+                                            <th>Gender</th>
                                             <th>Image</th>
                                             <th>Action</th>
                                         </tr>
@@ -53,17 +51,16 @@
                                         @forelse ($admins as $admin)
                                             <tr>
                                                 <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $admin->nim }}</td>
                                                 <td>{{ $admin->name }}</td>
-                                                <td>{{ $admin->nopol }}</td>
-                                                <td>{{ $admin->no_rangka }}</td>
                                                 <td>{{ $admin->email }}</td>
                                                 <td>{{ $admin->no_hp }}</td>
                                                 <td>{{ $admin->Level->level}}</td>
-                                                <td>{{ $admin->tipe_mobil}}</td>
-                                                <td>{{ $admin->alamat }}</td>
+                                                <td>{{ $admin->gender}}</td>
                                                 <td>
                                                     <div class="text-center">
-                                                    @if ($admin->image)
+                                                        @if ($admin->image)
+
                                                             <img src="{{ Storage::url($admin->image) }}" alt="gambar"
                                                             width="120px" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;" class="img-fluid">
                                                     @else

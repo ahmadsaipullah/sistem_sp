@@ -33,39 +33,21 @@
                     @error('name')
                         <span class="text-danger"> {{ $message }}</span>
                     @enderror
-
                     <div class="input-group mb-3">
-                        <input type="text" id="nopol" name="nopol"
-                            class="form-control @error('nopol') is invalid
+                        <input type="number" id="nim" name="nim"
+                            class="form-control @error('nim') is invalid
 
           @enderror"
-                            placeholder="Nomor Polisi" value="{{ old('nopol') }}" require>
+                            placeholder="Nomor Induk Mahasiswa" value="{{ old('nim') }}" require>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-tools"></span>
+                                <span class="fas fa-user"></span>
                             </div>
                         </div>
                     </div>
-                    @error('nopol')
+                    @error('nim')
                         <span class="text-danger"> {{ $message }}</span>
                     @enderror
-
-                    <div class="input-group mb-3">
-                        <input type="text" id="no_rangka" name="no_rangka"
-                            class="form-control @error('no_rangka') is invalid
-
-          @enderror"
-                            placeholder="Nomor Rangka" value="{{ old('no_rangka') }}" require>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-tools"></span>
-                            </div>
-                        </div>
-                    </div>
-                    @error('no_rangka')
-                        <span class="text-danger"> {{ $message }}</span>
-                    @enderror
-
                     <div class="input-group mb-3">
                         <input type="number" id="no_hp" name="no_hp"
                             class="form-control @error('no_hp') is invalid
@@ -96,40 +78,22 @@
                     @error('email')
                         <span class="text-danger"> {{ $message }}</span>
                     @enderror
-
                     <div class="input-group mb-3">
-                        <input type="text" id="tipe_mobil" name="tipe_mobil"
-                            class="form-control @error('tipe_mobil') is invalid
-
-          @enderror" placeholder="Type Mobil"
-                            value="{{ old('tipe_mobil') }}" require>
+                   <select name="gender" id="gender" class="form-control @error('gender') is invalid
+                   @enderror" required>
+                    <option selected disabled>-- Pilih Gender --</option>
+                    <option value="Pria">Pria</option>
+                    <option value="Wanita">Wanita</option>
+                   </select>
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-tools"></span>
+                                <span class="fas fa-user"></span>
                             </div>
                         </div>
                     </div>
-                    @error('tipe_mobil')
-                        <span class="text-danger"> {{ $message }}</span>
-                    @enderror
-
-                    <div class="input-group mb-3">
-                        <input type="text" id="alamat" name="alamat"
-                            class="form-control @error('alamat') is invalid
-
-          @enderror" placeholder="Alamat"
-                            value="{{ old('alamat') }}" require>
-                        <div class="input-group-append">
-                            <div class="input-group-text">
-                                <span class="fas fa-envelope"></span>
-                            </div>
-                        </div>
-                    </div>
-                    @error('alamat')
-                        <span class="text-danger"> {{ $message }}</span>
-                    @enderror
-
-
+                    @error('gender')
+                    <span class="text-danger"> {{ $message }}</span>
+                @enderror
                     <div class="input-group mb-3">
                         <input type="password" id="password" name="password"
                             class="form-control @error('password') is invalid

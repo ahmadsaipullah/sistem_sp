@@ -23,29 +23,16 @@
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
                         </div>
-
                         <div class="form-group">
-                            <label for="nopol">Nomor Polisi</label>
-                            <input type="text" class="form-control @error('nopol') is invalid
+                            <label for="nim">NIM / NIDN</label>
+                            <input type="number" class="form-control @error('nim') is invalid
 
               @enderror"
-                                id="nopol" name="nopol" placeholder="nopol" value="{{old('nopol')}}" required/>
-                            @error('nopol')
-                                <span class="text-danger"> {{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="form-group">
-                            <label for="no_rangka">Nomor Rangka</label>
-                            <input type="text" class="form-control @error('no_rangka') is invalid
-
-              @enderror"
-                                id="no_rangka" name="no_rangka" placeholder="Nomor Rangka" value="{{old('no_rangka')}}" required/>
+                                id="nim" name="nim" placeholder="Nim / Nidn" value="{{old('nim')}}" required/>
                             @error('nim')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
                         </div>
-
                         <div class="form-group">
                             <label for="no_hp">Nomor Handphone</label>
                             <input type="number" class="form-control @error('no_hp') is invalid
@@ -66,28 +53,18 @@
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
                         </div>
-
                         <div class="form-group">
-                            <label for="tipe_mobil">Type Mobil</label>
-                            <input type="text" class="form-control @error('tipe_mobil') is invalid
-
-              @enderror"
-                                id="tipe_mobil" name="tipe_mobil" placeholder="Type Mobil" value="{{old('tipe_mobil')}}" required/>
-                            @error('tipe_mobil')
-                                <span class="text-danger"> {{ $message }}</span>
-                            @enderror
-                        </div>
-
-                        <div class="form-group">
-                            <label for="alamat">Alamat</label>
-                            <textarea name="alamat" id="alamat"  rows="5" class="form-control @error('alamat') is invalid
-
-                            @enderror">{{ old('alamat') }}</textarea>
-                            @error('alamat')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div>
-
+                            <label for="gender">Gender</label>
+                            <select name="gender" id="gender" class="form-control @error('gender') is invalid
+                            @enderror" required>
+                             <option selected disabled>-- Pilih Gender --</option>
+                             <option value="Pria">Pria</option>
+                             <option value="Wanita">Wanita</option>
+                            </select>
+                                 @error('gender')
+                                 <span class="text-danger"> {{ $message }}</span>
+                             @enderror
+                             </div>
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password"

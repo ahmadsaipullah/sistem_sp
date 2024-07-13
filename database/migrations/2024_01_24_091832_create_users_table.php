@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nim')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('no_hp');
-            $table->unsignedBigInteger('level_id')->default(3); // Foreign key to levels table
+            $table->unsignedBigInteger('level_id')->default(5); // Foreign key to levels table
             $table->string('password');
             $table->string('image')->nullable();
             $table->string('gender');

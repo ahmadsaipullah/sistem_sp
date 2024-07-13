@@ -14,42 +14,57 @@ class userSeeder extends Seeder
      */
     public function run(): void
     {
-        User::Create( [
-            'name' => 'Admin Super',
-            'email' => 'adminsuper@gmail.com',
-            'nopol' => '2055201058NOPOL',
-            'no_rangka' => '2055201058RANGKA',
+      User::Create( [
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+            'nim' => '2055201058',
             'no_hp' => '087880182823',
             'level_id' => '1',
-            'tipe_mobil' => 'HONDA BRIO RS',
-            'alamat' => 'Cengkareng Jakarta Barat',
+            'gender' => 'pria',
             'password' => Hash::make(123456789),
 
         ]);
         User::Create( [
-            'name' => 'Admin',
-            'email' => 'admin@gmail.com',
-            'nopol' => '2055201058NOPOL2',
-            'no_rangka' => '2055201058RANGKA2',
+            'name' => 'Prodi',
+            'email' => 'prodi@gmail.com',
+            'nim' => '2055201051',
             'no_hp' => '087880182823',
             'level_id' => '2',
-            'tipe_mobil' => 'HONDA YARIS',
-            'alamat' => 'Cengkareng Jakarta Pusat',
+            'gender' => 'pria',
             'password' => Hash::make(123456789),
 
         ]);
         User::Create( [
-            'name' => 'Customer',
-            'email' => 'customer@gmail.com',
-            'nopol' => '2055201058NOPOL3',
-            'no_rangka' => '2055201058RANGKA3',
+            'name' => 'Dosen',
+            'email' => 'dosen@gmail.com',
+            'nim' => '2055201052',
             'no_hp' => '087880182823',
-            'level_id' => '1',
-            'tipe_mobil' => 'HONDA BRV',
-            'alamat' => 'Cengkareng Jakarta Timur',
+            'level_id' => '3',
+            'gender' => 'pria',
             'password' => Hash::make(123456789),
 
         ]);
+        User::Create( [
+            'name' => 'Akademik',
+            'email' => 'akademik@gmail.com',
+            'nim' => '2055201053',
+            'no_hp' => '087880182823',
+            'level_id' => '4',
+            'gender' => 'pria',
+            'password' => Hash::make(123456789),
+
+        ]);
+        User::Create( [
+            'name' => 'Mahasiswa',
+            'email' => 'mahasiswa@gmail.com',
+            'nim' => '2055201054',
+            'no_hp' => '087880182823',
+            'level_id' => '5',
+            'gender' => 'pria',
+            'password' => Hash::make(123456789),
+
+        ]);
+
 
 
 
