@@ -16,11 +16,15 @@ class usersMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::check() && Auth::user()->level_id == 3) {
+        if (Auth::check() && Auth::user()->level_id == 5) {
             return $next($request);
-        } elseif (Auth::check() && Auth::user()->level_id == 1) {
+        }elseif(Auth::check() && Auth::user()->level_id == 3){
             return $next($request);
-        } else {
+        }elseif(Auth::check() && Auth::user()->level_id == 2){
+            return $next($request);
+        }elseif(Auth::check() && Auth::user()->level_id == 1){
+            return $next($request);
+        }else{
             return redirect()->route('error');
         }
     }

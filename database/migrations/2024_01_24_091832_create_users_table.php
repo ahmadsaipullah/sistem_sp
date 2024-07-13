@@ -25,6 +25,7 @@ return new class extends Migration
             $table->unsignedBigInteger('dosen_id')->nullable();
             //relasi ke table levels
             $table->foreign('level_id')->references('id')->on('levels');
+            // $table->foreign('dosen_id')->references('id')->on('dosens');
             $table->rememberToken();
             $table->timestamps();
         });

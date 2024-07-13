@@ -39,13 +39,31 @@
                     <li class="nav-header">Menu</li>
                 @endif
                 @if (Auth::user()->level_id == 1)
-                    <li class="nav-header">Admin Super</li>
+                    <li class="nav-header">Admin</li>
                     <li class="nav-item">
                         <a href="{{ route('admin.index') }}" class="nav-link @yield('admin')">
                             <i class="nav-icon ion ion-person-add"></i>
                             <p>Admin</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('dosen.index') }}" class="nav-link @yield('dosen')">
+                            <i class="nav-icon ion ion-person-stalker"></i>
+                            <p>Dosen</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('matkul.index') }}" class="nav-link @yield('matkul')">
+                            <i class="nav-icon ion ion-clipboard"></i>
+                            <p>Matkul</p>
+                        </a>
+                    </li>
+                    {{-- <li class="nav-item">
+                        <a href="{{ route('pengajuan.index') }}" class="nav-link @yield('matkul')">
+                            <i class="nav-icon ion ion-clipboard"></i>
+                            <p>Pengajuan</p>
+                        </a>
+                    </li> --}}
                 @endif
             </ul>
         </nav>

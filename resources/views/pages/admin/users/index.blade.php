@@ -73,7 +73,7 @@
                                             </td>
                                                 <td>
 
-                                             <div class="text-center d-flex">
+                                             <div class="text-center d-flex justify-content-between">
                                                 <a href="{{ route('admin.edit', $admin->id) }}"
                                                     class="btn btn-warning btn-sm">
                                                     <i class="fa fa-pen"></i>

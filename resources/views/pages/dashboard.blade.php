@@ -1,5 +1,5 @@
 @extends('layouts.template_default')
-@section('title', 'Sistem Semester Pendek')
+@section('title', 'Dashboard')
 @section('dashboard', 'active ')
 @section('content')
     <div class="content-wrapper">

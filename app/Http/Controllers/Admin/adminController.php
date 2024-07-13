@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\Dosen;
 use App\Models\Level;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -17,7 +18,7 @@ class adminController extends Controller
      */
     public function index()
     {
-        $admins = User::with('Level')->get();
+        $admins = User::with(['Level','Dosen'])->get();
         return view('pages.admin.users.index', compact('admins'));
     }
 
@@ -26,8 +27,10 @@ class adminController extends Controller
      */
     public function create()
     {
+
+        $dosens = Dosen::all();
         $levels = Level::all();
-        return view('pages.admin.users.create', compact('levels'));
+        return view('pages.admin.users.create', compact('levels','dosens'));
     }
 
     /**
@@ -43,7 +46,8 @@ class adminController extends Controller
             'password' => ['required', 'min:6'],
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'gender' => ['required', 'string'],
-            'level_id' => ['nullable']
+            'level_id' => ['nullable'],
+            'dosen_id' => ['nullable']
         ]);
 
         $data = [
@@ -79,9 +83,11 @@ class adminController extends Controller
      */
     public function edit(string $id)
     {
+
+        $dosens = Dosen::all();
         $levels = level::all();
-        $admin = User::with('level')->findOrFail($id);
-        return view('pages.admin.users.edit', compact('levels', 'admin'));
+        $admin = User::with('Level','Dosen')->findOrFail($id);
+        return view('pages.admin.users.edit', compact('levels', 'admin','dosens'));
     }
 
     /**
@@ -98,7 +104,8 @@ class adminController extends Controller
             'password' => ['required', 'min:6'],
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'gender' => ['required', 'string'],
-            'level_id' => ['nullable']
+            'level_id' => ['nullable'],
+            'dosen_id' => ['nullable']
         ]);
 
         $admin = User::findOrFail($id);
