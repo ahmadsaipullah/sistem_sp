@@ -47,7 +47,7 @@ class adminController extends Controller
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'gender' => ['required', 'string'],
             'level_id' => ['nullable'],
-            'dosen_id' => ['nullable']
+            'dosen_id' => ['nullable','unique:users']
         ]);
 
         $data = [
@@ -105,7 +105,7 @@ class adminController extends Controller
             'image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif,svg', 'max:2048'],
             'gender' => ['required', 'string'],
             'level_id' => ['nullable'],
-            'dosen_id' => ['nullable']
+            'dosen_id' => ['nullable','unique:users,dosen_id,'. $id]
         ]);
 
         $admin = User::findOrFail($id);

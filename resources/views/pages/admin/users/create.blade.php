@@ -76,12 +76,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="dosen_id">Dosen</label>
-                                    <select class="form-control" id="dosen_id" name="dosen_id" required>
+                                    <select class="form-control @error('dosen_id') is invalid
+                                    @enderror" id="dosen_id" name="dosen_id" required>
                                         <option value="" disabled selected>-- Pilih Dosen --</option>
                                         @foreach ($dosens as $dosen)
                                             <option value="{{ $dosen->id }}">{{ $dosen->name }}</option>
                                         @endforeach
                                     </select>
+                                    @error('dosen_id')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                    @enderror
                                 </div>
 
                             </div>

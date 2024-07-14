@@ -10,7 +10,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{ route('dosen.store') }}" method="POST" >
+                <form action="{{ route('dosen.store') }}" method="POST">
                     @csrf
 
                     <div class="card-body">
@@ -29,8 +29,7 @@
                             <input type="number" class="form-control @error('nidn') is invalid
 
               @enderror"
-                                id="nidn" name="nidn" placeholder="Nidn" value="{{ old('nidn') }}"
-                                required />
+                                id="nidn" name="nidn" placeholder="Nidn" value="{{ old('nidn') }}" required />
                             @error('nidn')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror

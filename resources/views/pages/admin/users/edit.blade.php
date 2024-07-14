@@ -69,7 +69,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="dosen_id">Dosen</label>
-                                    <select class="form-control" id="dosen_id" name="dosen_id">
+                                    <select class="form-control @error('dosen_id') is invalid
+                                    @enderror" id="dosen_id" name="dosen_id">
                                         @if ($admin->dosen_id)
                                             <option value="{{ $admin->dosen_id }}" selected>{{ $admin->Dosen->name }}</option>
                                         @else
@@ -79,6 +80,9 @@
                                             <option value="{{ $dosen->id }}">{{ $dosen->name }}</option>
                                         @endforeach
                                     </select>
+                                    @error('dosen_id')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="gender">Gender</label>

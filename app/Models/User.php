@@ -62,6 +62,11 @@ class User extends Authenticatable
         return $this->belongsTo(Dosen::class, 'dosen_id', 'id');
     }
 
+    public function Pengajuan()
+    {
+        return $this->hasMany(Pengajuan::class);
+
+    }
 
 
 }

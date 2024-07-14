@@ -15,6 +15,5 @@ class Level extends Model
     public function User()
     {
         return $this->hasMany(User::class, 'level_id', 'id');
-
     }
 }

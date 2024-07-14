@@ -5,21 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Dosen extends Model
+class Status extends Model
 {
     use HasFactory;
 
-    protected $lable = 'dosens';
-    protected $fillable = ['name', 'nidn', 'email', 'no_hp'];
-
-    public function User()
-    {
-        return $this->hasMany(User::class, 'dosen_id', 'id');
-    }
+    protected $lable = 'statuss';
+    protected $fillable = ['status'];
 
     public function Pengajuan()
     {
         return $this->hasMany(Pengajuan::class);
     }
-
 }

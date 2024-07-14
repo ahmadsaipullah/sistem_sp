@@ -10,7 +10,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="{{ route('dosen.update', $dosen->id) }}" method="POST" >
+                <form action="{{ route('dosen.update', $dosen->id) }}" method="POST">
                     @csrf
                     @method('put')
                     <div class="card-body">
@@ -19,7 +19,8 @@
                             <input type="text" class="form-control @error('name') is invalid
 
               @enderror"
-                                id="name" name="name" placeholder="Name" value="{{ old('name') ?? $dosen->name }}" required />
+                                id="name" name="name" placeholder="Name" value="{{ old('name') ?? $dosen->name }}"
+                                required />
                             @error('name')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
@@ -29,8 +30,8 @@
                             <input type="number" class="form-control @error('nidn') is invalid
 
               @enderror"
-                                id="nidn" name="nidn" placeholder="nidn / Nidn" value="{{ old('nidn')  ?? $dosen->nidn }}"
-                                required />
+                                id="nidn" name="nidn" placeholder="nidn / Nidn"
+                                value="{{ old('nidn') ?? $dosen->nidn }}" required />
                             @error('nidn')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
@@ -40,8 +41,8 @@
                             <input type="number" class="form-control @error('no_hp') is invalid
 
                 @enderror"
-                                id="no_hp" name="no_hp" placeholder="Nomor Handphone" value="{{ old('no_hp')  ?? $dosen->no_hp }}"
-                                required />
+                                id="no_hp" name="no_hp" placeholder="Nomor Handphone"
+                                value="{{ old('no_hp') ?? $dosen->no_hp }}" required />
                             @error('no_hp')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror
@@ -51,7 +52,8 @@
                             <input type="email" class="form-control @error('email') is invalid
 
               @enderror"
-                                id="email" name="email" placeholder="Email" value="{{ old('email')  ?? $dosen->email }}" required />
+                                id="email" name="email" placeholder="Email"
+                                value="{{ old('email') ?? $dosen->email }}" required />
                             @error('email')
                                 <span class="text-danger"> {{ $message }}</span>
                             @enderror

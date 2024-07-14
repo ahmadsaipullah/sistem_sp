@@ -80,7 +80,7 @@
 
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-12 mb-4">
-                                <h1 class="text-center text-bold">INFORMASI KP DAN SKRIPSI</h1>
+                                <h1 class="text-center text-bold">SEMESTER PENDEK <br>PERBAIKAN NILAI MAHASISWA</h1>
                             </div>
 
                 @endif

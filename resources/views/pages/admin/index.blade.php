@@ -44,11 +44,6 @@
                                             <th>Nama</th>
                                             <th>Email</th>
                                             <th>No Hp</th>
-                                            {{-- <th>Terpilih SKRIPSI</th>
-                                            <th>Kuota SKRIPSI</th>
-                                            <th>Terpilih KP</th>
-                                            <th>Kuota KP</th> --}}
-                                            {{-- <th>Author</th> --}}
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -60,46 +55,6 @@
                                                 <td>{{ $dosen->name }}</td>
                                                 <td>{{ $dosen->email }}</td>
                                                 <td>{{ $dosen->no_hp }}</td>
-                                                {{-- <td><span class="btn btn-xs btn-success">{{ $dosen->approval_skripsi }}&nbsp;Mahasiswa</span></td>
-                                                <td>
-                                                    <div class="d-flex justify-content-center">
-                                                        <form action="{{ route('kurangKuota.skripsi', $dosen->id) }}" method="post">
-                                                            @csrf
-                                                            @method('put')
-                                                            <button type="submit" class="btn btn-xs btn-danger">-</button>
-                                                        </form>
-                                                        <span class="btn btn-sm btn-transpart">{{ $dosen->kuota_skripsi }}</span>
-                                                        <form action="{{ route('tambahKuota.skripsi', $dosen->id) }}" method="post">
-                                                            @csrf
-                                                            @method('put')
-                                                            <button type="submit" class="btn btn-xs btn-success ">+</button>
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                                <td><span class="btn btn-xs btn-warning">{{ $dosen->approval_kp }}&nbsp;Mahasiswa</span></td>
-                                                <td>
-                                                    <div class="d-flex justify-content-center">
-                                                        <form
-                                                            action="{{ route('kurangKuota.kp',  $dosen->id) }}"
-                                                            method="post">
-                                                            @csrf
-                                                            @method('put')
-                                                            <button type="submit" class="btn btn-xs btn-danger">-</button>
-                                                        </form>
-                                                        <span
-                                                            class="btn btn-sm btn-transpart">{{ $dosen->kuota_kp }}</span>
-                                                        <form
-                                                            action="{{ route('tambahKuota.kp',  $dosen->id) }}"
-                                                            method="post">
-                                                            @csrf
-                                                            @method('put')
-                                                            <button type="submit" class="btn btn-xs btn-success">+</button>
-                                                        </form>
-
-                                                    </div>
-
-                                                </td>
-                                                <td>{{ $dosen->User->name }}</td> --}}
                                                 <td>
 
                                                     <div class="text-center d-flex justify-content-between">

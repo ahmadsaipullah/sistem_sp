@@ -32,11 +32,35 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+                @if (Auth::user()->level_id == 5)
+                    <li class="nav-header">Menu</li>
+                @endif
+                @if (Auth::user()->level_id == 4)
+                    <li class="nav-header">Menu</li>
+                    <li class="nav-item">
+                        <a href="{{ route('verifikasi.index') }}" class="nav-link @yield('verifikasi')">
+                            <i class="nav-icon ion ion-person-stalker"></i>
+                            <p>Mahasiswa Pengajuan SP</p>
+                        </a>
+                    </li>
+                @endif
                 @if (Auth::user()->level_id == 3)
                     <li class="nav-header">Menu</li>
+                    <li class="nav-item">
+                        <a href="{{ route('mahasiswa.index') }}" class="nav-link @yield('datamahasiswasp')">
+                            <i class="nav-icon ion ion-person-stalker"></i>
+                            <p>Mahasiswa SP</p>
+                        </a>
+                    </li>
                 @endif
                 @if (Auth::user()->level_id == 2)
                     <li class="nav-header">Menu</li>
+                    <li class="nav-item">
+                        <a href="{{ route('verifikasi.mahasiswa') }}" class="nav-link @yield('verifikasimahasiswa')">
+                            <i class="nav-icon ion ion-person-stalker"></i>
+                            <p>Mahasiswa Pengajuan SP</p>
+                        </a>
+                    </li>
                 @endif
                 @if (Auth::user()->level_id == 1)
                     <li class="nav-header">Admin</li>
@@ -58,12 +82,12 @@
                             <p>Matkul</p>
                         </a>
                     </li>
-                    {{-- <li class="nav-item">
-                        <a href="{{ route('pengajuan.index') }}" class="nav-link @yield('matkul')">
-                            <i class="nav-icon ion ion-clipboard"></i>
+                    <li class="nav-item">
+                        <a href="{{ route('pengajuan.index') }}" class="nav-link @yield('pengajuan')">
+                            <i class="nav-icon ion ion-compose"></i>
                             <p>Pengajuan</p>
                         </a>
-                    </li> --}}
+                    </li>
                 @endif
             </ul>
         </nav>
