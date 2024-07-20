@@ -55,4 +55,9 @@ class Pengajuan extends Model
                     ->whereYear('created_at', Carbon::now()->year)
                     ->sum('sks');
     }
+
+    public function Tugas()
+    {
+        return $this->hasMany(Tugas::class);
+    }
 }

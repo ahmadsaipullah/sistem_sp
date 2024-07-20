@@ -22,4 +22,9 @@ class Dosen extends Model
         return $this->hasMany(Pengajuan::class);
     }
 
+    public function Tugas()
+    {
+        return $this->hasMany(Tugas::class, 'dosen_id', 'id');
+    }
+
 }

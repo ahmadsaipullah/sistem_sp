@@ -46,6 +46,12 @@
                             <p>Status Pendaftaran</p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{ route('daftartugas.index', auth()->user()->id) }}" class="nav-link @yield('tugas')">
+                            <i class="nav-icon ion ion-compose"></i>
+                            <p>Tugas Dosen</p>
+                        </a>
+                    </li>
                 @endif
                 @if (Auth::user()->level_id == 4)
                     <li class="nav-header">Menu</li>

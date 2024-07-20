@@ -68,5 +68,10 @@ class User extends Authenticatable
 
     }
 
+    public function Tugas()
+    {
+        return $this->hasMany(Tugas::class,'user_id', 'id');
+    }
+
 
 }

@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\prodiController;
+use App\Http\Controllers\tugasController;
 use App\Http\Controllers\profileController;
+use App\Http\Controllers\mahasiswaController;
 use App\Http\Controllers\perbaikanController;
 use App\Http\Controllers\verifikasiController;
 use App\Http\Controllers\pendaftaranController;
@@ -71,6 +73,13 @@ Route::get('/verifikasi-mahasiswa' ,[prodiController::class, 'index'])->name('ve
 Route::middleware(['Dosen'])->group( function(){
 
 Route::get('/mahasiswa-sp', [perbaikanController::class,'index'])->name('mahasiswa.index');
+// memberi tugas
+Route::get('/daftar-tugas', [tugasController::class, 'index'])->name('tugas.index');
+Route::get('/tugas/create/{user_id}', [TugasController::class, 'create'])->name('tugas.create');
+Route::post('tugas/store', [TugasController::class, 'store'])->name('tugas.store');
+// nilai tugas
+Route::get('tugas/nilai/{id}', [TugasController::class, 'nilaiForm'])->name('tugas.nilaiForm');
+Route::post('tugas/nilai/{id}', [TugasController::class, 'nilai'])->name('tugas.nilai');
 
 });
 
@@ -94,6 +103,11 @@ Route::middleware(['Mahasiswa'])->group( function(){
     Route::get('/status/pendaftaran', [pendaftaranController::class, 'status'])->name('pendaftaran.status');
     Route::post('/pendaftaran', [pendaftaranController::class, 'store'])->name('pendaftaran.store');
     Route::get('/pendaftaran/{id}', [pendaftaranController::class, 'create'])->name('pendaftaran.create');
+    // submit tugas
+    Route::get('tugas/submit/{id}', [mahasiswaController::class, 'submitForm'])->name('tugas.submitForm');
+    Route::post('tugas/submit/{id}', [TugasController::class, 'submit'])->name('tugas.submit');
+    // daftar tugas
+    Route::get('daftar/tugas', [mahasiswaController::class, 'index'])->name('daftartugas.index');
 
 });
 

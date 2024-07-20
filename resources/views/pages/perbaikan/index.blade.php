@@ -77,12 +77,12 @@
                                     </div>
                                     <div class="card-footer">
                                         <div class="text-right">
-                                            <a href="#" class="btn btn-sm bg-teal">
-                                                <i class="fas fa-comments"></i>
+                                            <a href="{{ route('tugas.create', $pengajuan->id) }}" class="btn btn-sm bg-teal">
+                                                <i class="fas fa-comments"></i> Berikan Tugas
                                             </a>
-                                            <a href="{{ route('bimbingan.detail', encrypt($pengajuan->id)) }}"
+                                            <a href="{{ route('tugas.index', $pengajuan->id) }}"
                                                 class="btn btn-sm btn-primary">
-                                                <i class="fas fa-user"></i> Detail Bimbingan
+                                                <i class="fas fa-user"></i> Detail Tugas
                                             </a>
                                         </div>
                                     </div>
