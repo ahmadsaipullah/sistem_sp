@@ -5,6 +5,7 @@ use App\Http\Controllers\prodiController;
 use App\Http\Controllers\profileController;
 use App\Http\Controllers\perbaikanController;
 use App\Http\Controllers\verifikasiController;
+use App\Http\Controllers\pendaftaranController;
 use App\Http\Controllers\Admin\{adminController,dashboardController,dosenController,matkulController,pengajuanController};
 
 /*
@@ -89,7 +90,10 @@ Route::get('/verifikasi' ,[verifikasiController::class, 'index'])->name('verifik
 
 Route::middleware(['Mahasiswa'])->group( function(){
 
-
+    Route::get('/pilih/matkul', [pendaftaranController::class, 'index'])->name('pendaftaran.index');
+    Route::get('/status/pendaftaran', [pendaftaranController::class, 'status'])->name('pendaftaran.status');
+    Route::post('/pendaftaran', [pendaftaranController::class, 'store'])->name('pendaftaran.store');
+    Route::get('/pendaftaran/{id}', [pendaftaranController::class, 'create'])->name('pendaftaran.create');
 
 });
 

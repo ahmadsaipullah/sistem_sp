@@ -34,6 +34,18 @@
                 </li>
                 @if (Auth::user()->level_id == 5)
                     <li class="nav-header">Menu</li>
+                    <li class="nav-item">
+                        <a href="{{ route('pendaftaran.index') }}" class="nav-link @yield('pendaftaran')">
+                            <i class="nav-icon ion ion-compose"></i>
+                            <p>pendaftaran SP</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('pendaftaran.status') }}" class="nav-link @yield('status')">
+                            <i class="nav-icon ion ion-compose"></i>
+                            <p>Status Pendaftaran</p>
+                        </a>
+                    </li>
                 @endif
                 @if (Auth::user()->level_id == 4)
                     <li class="nav-header">Menu</li>
